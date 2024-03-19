@@ -10,11 +10,12 @@ from ldap3 import Server, Connection, SUBTREE
 
 def ldap_search():
     ldap_server = "ldap.forumsys.com"
-    server = Server(ldap_server)
+    server = Server(ldap_server) 
 
-    # Connessione al server LDAP
+    # Connessione al server LDAP, traduce indirizzo sintattico in indirizzo IP
     ldap_conn = Connection(server, user="uid=tesla,dc=example,dc=com", password="password")
-
+    #leggo informazioni all'interno di example.com e mi connetto con il server passando i parametri
+    
     # Bind con l'utente e password specificati
     ldap_conn.bind()
 
@@ -23,6 +24,7 @@ def ldap_search():
 
     # Creazione della query di ricerca
     search_filter = "(objectclass=*)"
+    #definisco che cosa voglio leggere, * cioè tutto, tutta la serie di utenti
 
     # Esecuzione della ricerca
     ldap_conn.search(base_dn, search_filter, SUBTREE)
