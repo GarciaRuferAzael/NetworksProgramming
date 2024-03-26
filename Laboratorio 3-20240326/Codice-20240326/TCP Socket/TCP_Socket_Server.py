@@ -3,7 +3,7 @@
 
 import sys
 from socket import * 
-serverPort=8080
+serverPort=8080 #porta
 serverSocket = socket(AF_INET, SOCK_STREAM)
 server_address=('localhost',serverPort)
 serverSocket.bind(server_address)
